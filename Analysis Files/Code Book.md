@@ -1,7 +1,6 @@
-==========================================================================
 Getting and Cleaning Data
 Week 4 Project
-==========================================================================
+
 This file contains a description of the data produced by the analysis of 
 the smartphone data. This data is contained in the file "output_data.csv".
 
