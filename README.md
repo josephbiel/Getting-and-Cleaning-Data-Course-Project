@@ -1,7 +1,6 @@
-==========================================================================
 Getting and Cleaning Data
 Week 4 Project
-==========================================================================
+
 The data for this project consists of two parts:
    - A Zip file named "UCI HAR Dataset Zip.7z"
    - A folder named "Analysis Files"
