@@ -1,4 +1,4 @@
-# function run_analysis(path)
+# function run_analysis()
 #
 # This function 
 #     1) reads data collected from Samsung Galaxy S phone accelerometer
@@ -7,40 +7,34 @@
 #     3) writes the processed data to a CSV file
 #
 # Inputs:
-#     path = a string containing a path to the folder that contains
-#            the phone data
+#     The data files (for example, the test folder and train folder) are 
+#     assumed to be in the RStudio working directory
+#     
 #
 # Outputs:
 #     output_data.csv = CSV file
 #
 run_analysis<-function(dataFolder){
     # Read test data
-    testDataFile<-paste(dataFolder, "/test/X_test.txt", sep="")
-    testData<-read.table(testDataFile)
+    testData<-read.table("test/X_test.txt")
     
     # Read the subject ID numbers associated with the test data
-    testDataSubjectNumbersFile<-paste(dataFolder, "/test/subject_test.txt", sep="")
-    testDataSubjectNumbers<-read.table(testDataSubjectNumbersFile)
+    testDataSubjectNumbers<-read.table("test/subject_test.txt")
     
     # Read the activity numbers associated with the test data
-    testDataActivitiesFile<-paste(dataFolder, "/test/y_test.txt", sep="")
-    testDataActivities<-read.table(testDataActivitiesFile)
+    testDataActivities<-read.table("test/y_test.txt")
     
     # Read training data
-    trainDataFile<-paste(dataFolder, "/train/X_train.txt", sep="")
-    trainData<-read.table(trainDataFile)
+    trainData<-read.table("train/X_train.txt")
     
     # Read the subject ID numbers associated with the training data
-    trainDataSubjectNumbersFile<-paste(dataFolder, "/train/subject_train.txt", sep="")
-    trainDataSubjectNumbers<-read.table(trainDataSubjectNumbersFile)
+    trainDataSubjectNumbers<-read.table("train/subject_train.txt")
     
     # Read the activity numbers associated with the training data
-    trainDataActivitiesFile<-paste(dataFolder, "/train/y_train.txt", sep="")
-    trainDataActivities<-read.table(trainDataActivitiesFile)
+    trainDataActivities<-read.table("train/y_train.txt")
     
     # Read the names associated with the activity numbers
-    dataNamesFile<-paste(dataFolder, "/features.txt", sep="")
-    dataNames<-read.table(dataNamesFile)
+    dataNames<-read.table("features.txt")
     
     # Combine rows for test and training data
     data<-bind_rows(testData, trainData)
@@ -70,5 +64,5 @@ run_analysis<-function(dataFolder){
     View(secondIndependentTidyData)
     
     # Write the results of analysis to a CSV file
-    write.csv(secondIndependentTidyData, "output_data.csv")
+    write.table(secondIndependentTidyData, "output_data.txt", row.names=FALSE)
 }
